@@ -1,23 +1,24 @@
 import { Game } from "./js/game.js";
+import { Context } from "./js/context.js";
 
 window.addEventListener("load", function () {
-	const canvas = document.getElementById("canvas1");
-	const ctx = canvas.getContext("2d");
-	canvas.width = 1000;
-	canvas.height = 700;
+	const container = document.getElementById("container");
+	let gameWidth = 1000;
+	let gameHeight = 700;
+	const ctx = new Context(container, gameWidth, gameHeight);
 
-	const game = new Game(canvas.width, canvas.height)
+	const game = new Game(gameWidth, gameHeight);
 	game.addEnemies();
 	let lastTime = 0;
-	
-	function animate(timeStamp){
+
+	function animate(timeStamp) {
 		let deltaTime = timeStamp - lastTime;
 		lastTime = timeStamp;
-		ctx.clearRect(0,0,canvas.width, canvas.height);
+		ctx.clearRect(container);
 		game.draw(ctx);
 		game.update(deltaTime);
-		requestAnimationFrame(animate)
+		requestAnimationFrame(animate);
 	}
 
-	animate(0)
+	animate(0);
 });
