@@ -8,11 +8,27 @@ html {
 	background-color: black;
 }
 
+h1 {
+	color: lime;
+	text-align: center;
+	font-family: Audiowide;
+	top: 50px;
+	position: absolute;
+	left: 50%;
+	font-size: 80px;
+	transform: translate(-50%);
+}
+
 #container {
 	border: 5px solid lime;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -40%);
 	display: flex;
+	background: url(./assets/Background.png);
+	background-position: center;
+	overflow: hidden;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
