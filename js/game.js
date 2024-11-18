@@ -9,8 +9,8 @@ export class Game {
 		this.height = height;
 		this.direction = "right";
 		this.speed = 1;
-		this.maxSpeed = 5;
-		this.lives = 30;
+		this.maxSpeed = 10;
+		this.lives = 3;
 		this.score = 0;
 		this.time = 0;
 		this.enemies = [];
@@ -30,7 +30,7 @@ export class Game {
 		this.ui = new UI(this);
 		this.oldSpeed = 0;
 		this.bulletTimer = 0;
-		this.bulletInterval = 15000;
+		this.bulletInterval = 5000;
 		this.win = false;
 		this.levelUp = false;
 	}
@@ -111,6 +111,7 @@ export class Game {
 			this.bulletInterval -= 50;
 			this.lives++;
 			this.levelUp = false;
+			this.speed++;
 		} else {
 			this.lives = 3;
 			this.score = 0;

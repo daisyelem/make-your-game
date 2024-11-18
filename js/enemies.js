@@ -126,7 +126,7 @@ export class EnemyColumn {
 		if (this.game.direction === "left" && this.leftEdge && this.x <= 0) {
 			this.game.speed *= -1;
 			if (this.game.speed <= this.game.maxSpeed) {
-				this.game.speed *= 1.1;
+				this.game.speed *= 1.15;
 			}
 			this.game.direction = "right";
 			this.game.enemyTop += 8;
@@ -139,7 +139,7 @@ export class EnemyColumn {
 		) {
 			this.game.speed *= -1;
 			if (this.game.speed <= this.game.maxSpeed) {
-				this.game.speed *= 1.1;
+				this.game.speed *= 1.15;
 			}
 			this.game.direction = "left";
 			this.game.enemyTop += 8;
@@ -152,14 +152,14 @@ export class EnemyColumn {
 		this.bullets.forEach((bullet) => {
 			bullet.update(deltaTime);
 			if (bullet.markedForDeletion) {
-				this.game.currentBullets--
+				this.game.currentBullets--;
 			}
 		});
 		this.col.forEach((enemy) => {
 			if (
 				enemy.bulletChance > Math.random() * 50 + 25 &&
 				this.game.bulletTimer > this.game.bulletInterval &&
-				this.bullets.length < 2 &&
+				this.bullets.length < 3 &&
 				this.game.currentBullets < this.game.maxBullets
 			) {
 				this.bullets.push(new EnemyBullet(this.game, enemy));
