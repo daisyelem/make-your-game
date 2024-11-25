@@ -14,8 +14,16 @@ window.addEventListener("load", function () {
 	function animate(timeStamp) {
 		let deltaTime = timeStamp - lastTime;
 		lastTime = timeStamp;
-		ctx.clearRect();
-		game.draw(ctx);
+		if (!game.gameOver && !game.Paused) {
+			ctx.clearRect();
+			game.draw(ctx);
+
+		}
+		if (game.drawOverlay) {
+			game.draw(ctx);
+			game.drawOverlay = false;
+		}
+		
 		game.update(deltaTime);
 		requestAnimationFrame(animate);
 	}

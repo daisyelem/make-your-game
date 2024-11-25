@@ -71,7 +71,6 @@ export class GameOver extends PlayerState {
 	}
 	enter() {
 		this.game.speed = 0;
-
 		this.game.player.speed = 0;
 	}
 	handleInput(input) {
@@ -101,3 +100,4 @@ export class Paused extends PlayerState {
 		}
 	}
 }
+

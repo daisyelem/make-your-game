@@ -33,6 +33,7 @@ export class Game {
 		this.bulletInterval = 5000;
 		this.win = false;
 		this.levelUp = false;
+		this.drawOverlay = false;
 	}
 	draw(context) {
 		//enemies
@@ -111,7 +112,6 @@ export class Game {
 			this.bulletInterval -= 50;
 			this.lives++;
 			this.levelUp = false;
-			this.speed++;
 		} else {
 			this.lives = 3;
 			this.score = 0;
